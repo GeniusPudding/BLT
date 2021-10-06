@@ -1,0 +1,104 @@
+.connecting{
+    /* Connecting to MetaMask... */
+
+
+position: absolute;
+width: 270px;
+height: 29px;
+left: 685px;
+top: 201px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: #3F27A7;
+
+text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+}
+.img6{
+    /* image 6 */
+
+
+position: absolute;
+width: 133px;
+height: 129px;
+left: 754px;
+top: 282px;
+
+background: url('/public/images/profile.jpg');
+}
+.succ{
+/* Successfully Connected */
+
+
+position: absolute;
+width: 238px;
+height: 29px;
+left: 701px;
+top: 218px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: #3F27A7;
+
+text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+
+}
+.elli57{
+/* Ellipse 57 */
+
+
+position: absolute;
+width: 103px;
+height: 103px;
+left: 769px;
+top: 298px;
+
+background: #11CF0D;
+box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.25);
+}
+.vec17{
+    /* Vector 17 */
+
+
+position: absolute;
+width: 43px;
+height: 36.5px;
+left: 799px;
+top: 332px;
+
+border: 4px solid #FFFFFF;
+}
+.personal{
+    /* Personal Information */
+
+
+position: absolute;
+width: 214px;
+height: 29px;
+left: 503px;
+top: 73px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+
+color: #3F27A7;
+
+text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+}

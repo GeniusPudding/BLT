@@ -1,0 +1,55 @@
+.rec
+{
+    /* Rectangle 61 */
+
+
+position: absolute;
+width: 445px;
+height: 650px;
+left: 0px;
+top: 0px;
+
+background: linear-gradient(152.45deg, #332579 16.32%, #454BD4 101.58%);
+}
+.create{
+/* Create New Account */
+
+
+position: absolute;
+width: 302px;
+height: 42px;
+left: 63px;
+top: 96px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: bold;
+font-size: 35px;
+line-height: 42px;
+
+color: #FFFFFF;
+
+text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+}
+.blt{
+/* BLT use MetaMask wallet to connect Ethereum, which is a trustworthy blockchain that your research data can be stored safely. */
+
+
+position: absolute;
+width: 550px;
+height: 34px;
+left: -52px;
+top: 145px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;
+/* or 125% */
+
+text-align: center;
+
+color: #E4E4E4;
+}
+

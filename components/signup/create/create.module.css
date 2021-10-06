@@ -1,0 +1,157 @@
+.new {
+  /* Create New Account */
+
+  position: absolute;
+  width: 300px;
+  height: 42px;
+  left: 673px;
+  top: 80px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 42px;
+
+  color: #3f27a7;
+
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+}
+.blt {
+  /* BLT use MetaMask wallet to connect Ethereum, which is a trustworthy blockchain that your research data can be stored safely. */
+
+  position: absolute;
+  width: 550px;
+  height: 34px;
+  left: 558px;
+  top: 129px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  /* or 125% */
+
+  text-align: center;
+
+  color: #606060;
+}
+.rec62 {
+  /* Rectangle 62 */
+
+  position: absolute;
+  width: 237px;
+  height: 198px;
+  left: 569px;
+  top: 274px;
+  cursor: pointer;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.rec63 {
+  /* Rectangle 63 */
+
+  position: absolute;
+  width: 237px;
+  height: 198px;
+  left: 843px;
+  top: 274px;
+  cursor: pointer;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.img7 {
+  /* image 7 */
+
+  position: absolute;
+  width: 66px;
+  height: 64px;
+  left: 654px;
+  top: 301px;
+  cursor: pointer;
+
+  background: url("../../../public/images/profile.jpg");
+}
+.img5 {
+  /* image 5 */
+
+  position: absolute;
+  width: 66px;
+  height: 64px;
+  left: 928px;
+  top: 301px;
+  cursor: pointer;
+
+  background: url("../../../public/images/profile.jpg");
+}
+.no {
+  /* I don’t have a MetaMask account */
+
+  position: absolute;
+  width: 214px;
+  height: 29px;
+  left: 580px;
+  top: 382px;
+  cursor: pointer;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #291d42;
+
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+}
+.yes {
+  /* I’ve already had a MetaMask Account! */
+
+  position: absolute;
+  width: 214px;
+  height: 29px;
+  left: 854px;
+  top: 382px;
+  cursor: pointer;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #291d42;
+
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.25);
+}
+.what{
+    /* What is Metamask? */
+
+
+position: absolute;
+width: 550px;
+height: 34px;
+left: 549px;
+top: 489px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 20px;
+/* or 125% */
+
+text-align: center;
+text-decoration-line: underline;
+
+color: #606060;
+
+}

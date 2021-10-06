@@ -1,0 +1,153 @@
+.group80 {
+  /* Group 80 */
+
+  position: fixed;
+  width: 1439px;
+  height: 88px;
+  left: -2px;
+  top: 0px;
+
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.vector14 {
+  /* Vector 14 */
+
+  position: absolute;
+  width: 44.97px;
+  height: 0px;
+  left: 782.45px;
+  top: 63px;
+
+  border: 3px solid #f9b66f;
+}
+.blockchain {
+  position: absolute;
+  width: 122.91px;
+  height: 44px;
+  left: 57.96px;
+  top: 31px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #f9b66f;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.home {
+  position: absolute;
+  width: 41.97px;
+  height: 19px;
+  left: 783.45px;
+  top: 40px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.service {
+  position: absolute;
+  width: 48.97px;
+  height: 19px;
+  left: 874.39px;
+  top: 40px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.function {
+  position: absolute;
+  width: 59.96px;
+  height: 19px;
+  left: 972.32px;
+  top: 40px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.faq {
+  position: absolute;
+  width: 36.97px;
+  height: 19px;
+  left: 1081.25px;
+  top: 40px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.about {
+  position: absolute;
+  width: 61.96px;
+  height: 19px;
+  left: 1167.19px;
+  top: 40px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff;
+}
+
+.contact {
+  position: absolute;
+  width: 72.95px;
+  height: 19px;
+  left: 1278.11px;
+  top: 41px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.vector16 {
+/* Vector 16 */
+
+
+position: absolute;
+width: 1439px;
+height: 88px;
+left: -2px;
+top: 0px;
+
+background: linear-gradient(89.88deg, rgba(54, 39, 118, 0.54) 29.8%, rgba(73, 88, 251, 0.54) 81.89%);
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

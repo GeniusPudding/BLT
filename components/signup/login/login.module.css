@@ -1,0 +1,56 @@
+.rec {
+  /* Rectangle 61 */
+
+  position: absolute;
+  width: 445px;
+  height: 650px;
+  left: 0px;
+  top: 0px;
+
+  background: linear-gradient(152.45deg, #332579 16.32%, #454bd4 101.58%);
+}
+
+.welcome {
+  /* Welcome Back! */
+
+  position: absolute;
+  width: 226px;
+  height: 42px;
+  left: 108px;
+  top: 212px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 42px;
+
+  color: #ffffff;
+}
+.start {
+  /* Start to record your research, log in with your MetaMask account! */
+
+  position: absolute;
+  width: 243px;
+  height: 34px;
+  left: 101px;
+  top: 267px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.group60 {
+  /* Group 60 */
+
+  position: absolute;
+  width: 170px;
+  height: 45px;
+  left: 134px;
+  top: 352px;
+}
