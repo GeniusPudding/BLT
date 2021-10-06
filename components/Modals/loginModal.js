@@ -200,10 +200,12 @@ export default function LoginModal({ show, onClose, children }) {
        // Then try to connect to metamask
        onClose()
        console.log('Connecting...')
-       metaconnect()
-      //  connect()
+      //  metaconnect()
+      connect()
        
 
+    }else{
+      disconnect()
     }
   }, [isConnecting]);
 
