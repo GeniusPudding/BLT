@@ -12,7 +12,8 @@ import BLT_SignUp from "../components/landing/group59/group59";
 import { getIntroData } from "../lib/landing";
 import Link from "next/link";
 import { useState } from "react";
-import LoginModal from "../components/Modals/loginModal";
+import LoginModal from "../components/modals/loginModal";
+
 // import Date from "../components/date";
 
 // For Static Generation, export "getStaticProps" (getStaticProps can only be exported from a page)
