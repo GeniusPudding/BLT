@@ -4,7 +4,7 @@ import Vector21 from '../vectors/vector21'
 import Vector22 from '../vectors/vector22'
 import Vector23 from '../vectors/vector23'
 import BLT_Login2 from './group60/group60'
-import LoginModal from "../../../components/Modals/loginModal";
+import LoginModal from "../../modals/loginModal";
 export default function LeftToLogin() {
     const [showModal, setShowModal] = useState(false);
     return (

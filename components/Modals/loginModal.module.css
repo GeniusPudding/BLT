@@ -170,6 +170,17 @@
   box-sizing: border-box;
   box-shadow: 0px 3px 11px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #3f3fb7;
 }
 .textlogin {
   /* Log in */

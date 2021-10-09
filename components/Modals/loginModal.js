@@ -8,7 +8,7 @@ import styles from "./loginModal.module.css";
 
 
 import { useWeb3React } from "@web3-react/core"
-import { injected } from "../../components/wallet/connectors"
+import { injected } from "../wallet/connectors"
 
 const INFURA_ID = '460f40a260564ac4a4f4b3fffb032dad'
 
@@ -92,23 +92,23 @@ export default function LoginModal({ show, onClose, children }) {
   const [state, dispatch] = useReducer(reducer, initialState)
   const { provider, web3Provider, address, chainId } = state
   const { active, account, library, connector, activate, deactivate } = useWeb3React()
-  async function metaconnect() {
-    try {
-      console.log('useWeb3React:',active,account,library,connector)
-      await activate(injected)
-      console.log('useWeb3React activated:',active,account,library,connector)
-    } catch (ex) {
-      console.log(ex)
-    }
-  }
+  // async function metaconnect() {
+  //   try {
+  //     console.log('useWeb3React:',active,account,library,connector)
+  //     await activate(injected)
+  //     console.log('useWeb3React activated:',active,account,library,connector)
+  //   } catch (ex) {
+  //     console.log(ex)
+  //   }
+  // }
 
-  async function metadisconnect() {
-    try {
-      deactivate()
-    } catch (ex) {
-      console.log(ex)
-    }
-  }
+  // async function metadisconnect() {
+  //   try {
+  //     deactivate()
+  //   } catch (ex) {
+  //     console.log(ex)
+  //   }
+  // }
 
 
   const connect = useCallback(async function () {
@@ -258,13 +258,7 @@ export default function LoginModal({ show, onClose, children }) {
               placeholder="password"
             ></input>
           </div>
-          <button className={styles.reclogin}  type="submit">
-          
-          </button>
-          <div className={styles.textlogin}>Login</div>
-          
-
-
+          <input className={styles.reclogin}  type="submit" value="Login"></input>
         </form>
 
         <button className={styles.recclean}  onClick={handleTest}></button>
