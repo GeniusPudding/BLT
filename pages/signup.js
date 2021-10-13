@@ -42,7 +42,7 @@ export default function SignUp({ allPostsData }) {
           :
           <>
             <LeftAccountCreating step={step} hasMM={hasMM}></LeftAccountCreating>
-            <RightStepScreens step={step}></RightStepScreens>
+            <RightStepScreens step={step} setStep={setStep}></RightStepScreens>
           </>
       }
     </div>
