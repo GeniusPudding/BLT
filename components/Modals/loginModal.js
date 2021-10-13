@@ -108,7 +108,7 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
       console.log("uid:",uid)
       // ...
     } else {
-      console.log('sign out')
+      console.log('onAuthStateChanged sign out')
       // User is signed out
       // ...
     }
@@ -151,6 +151,10 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
     const address = await signer.getAddress();
 
     const network = await web3Provider.getNetwork();
+
+    console.log("signer:",signer)
+    console.log("address:",address)
+    console.log("network:",network)
 
     dispatch({
       type: "SET_WEB3_PROVIDER",
@@ -226,18 +230,9 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
     }
   }, [connect]);
 
-  // useEffect(()=>{
-    
-  // },[email])
-  // useEffect(()=>{
-  //   console.log('change email:',email)
-  //   console.log('change password:',password)
-
-  // },[email, password])
   useEffect(()=>{
     if(!loginUser==""){
       console.log('login blt user:',loginUser)
-      "eyJhbGciOiJSUzI1NiIsImtpZCI6ImYwNTM4MmFlMTgxYWJlNjFiOTYwYjA1Yzk3ZmE0MDljNDdhNDQ0ZTciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vYmx0LWR4bnMiLCJhdWQiOiJibHQtZHhucyIsImF1dGhfdGltZSI6MTYzNDA5MTYyMSwidXNlcl9pZCI6Ik13TXBlQUkwcTJmeFJqcVNCY2tqbW44Q2N5aDEiLCJzdWIiOiJNd01wZUFJMHEyZnhSanFTQmNram1uOENjeWgxIiwiaWF0IjoxNjM0MDkxNjIxLCJleHAiOjE2MzQwOTUyMjEsImVtYWlsIjoiczM1Z2o2MDAyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJzMzVnajYwMDJAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.DdJdxpNFqcwmIXMNrGtBrPeLzrF2CD9W-hbnf8wjWbaC7pdSMiJhte86GOz_A1EIl8SAEZrS-4LtmlB7fsftLQUmaaTi2_M3yYbjiBIsaPK1isJKJGq7BSsrNxnrtttK8xXpjofpZfwMqFVy1GoF_olDSZrqeGqS4HtDdykaZNgcrqjF_is2KVaQk5M-LHch5SRUdDlP_U8khaUPnYKji14VF4uX7S1Ok2A3xhn751pcZW1YiO65fa225VXFBGL2f0SHz_Id6ZL3IaTOrHQFYsggzvd2LkksuJ-8jYvZ-Ihy_0PcYPREXf2pB3E_5wfvXUq6x01njC8pj6zJ7ZaUSQ"
       setIsConnecting(true);
     }
 
@@ -268,7 +263,7 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setIsConnecting(false);
+    setIsConnecting(false);// how to set this when metamask modal closed?
     console.log("handleLogin.target.elements.email", e.target.elements.email.value);
     console.log("handleLogin.target.elements.password", e.target.elements.password.value);
     // setEmail(e.target.elements.email.value)
