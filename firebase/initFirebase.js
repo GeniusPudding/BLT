@@ -1,4 +1,5 @@
-import firebase from 'firebase/app'
+import { initializeApp, getApps } from 'firebase/app'
+import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 // the below imports are option - comment out what you don't need
 import 'firebase/auth'
 import 'firebase/firestore'
@@ -17,8 +18,8 @@ const clientCredentials = {
 }
 
 export default function initFirebase() {
-    if (!firebase.apps.length) {
-        firebase.initializeApp(clientCredentials)
+    if (getApps().length < 1) {
+        const app = initializeApp(clientCredentials)
         // Check that `window` is in scope for the analytics module!
         if (typeof window !== 'undefined') {
             // Enable analytics. https://firebase.google.com/docs/analytics/get-started
@@ -28,5 +29,9 @@ export default function initFirebase() {
             }
         }
         console.log('Firebase was successfully init.')
+
+        return app
+    }else{
+        return null
     }
 }
