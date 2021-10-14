@@ -149,11 +149,14 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
 
     const signer = web3Provider.getSigner();
     const address = await signer.getAddress();
-
+    const accounts = await web3Provider.listAccounts();
+    console.log("accounts:",accounts)
+    const balance = await web3Provider.getBalance(address);
     const network = await web3Provider.getNetwork();
 
     console.log("signer:",signer)
     console.log("address:",address)
+    console.log("balance:",balance)
     console.log("network:",network)
 
     dispatch({
