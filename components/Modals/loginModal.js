@@ -1,8 +1,8 @@
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import { providers } from "ethers";
+// import WalletConnectProvider from "@walletconnect/web3-provider";
+// import { providers } from "ethers";
 import { useState, useCallback, useEffect, useReducer } from "react";
-import WalletLink from "walletlink";
-import Web3Modal from "web3modal";
+// import WalletLink from "walletlink";
+// import Web3Modal from "web3modal";
 import ReactDOM from "react-dom";
 import styles from "./loginModal.module.css";
 import initFirebase from "../../firebase/initFirebase";
@@ -72,7 +72,8 @@ export default function LoginModal({ show, onClose, setIsLogin }) {
   };
 
   const connect = useCallback(async () => {
-    let network = await connectMetamask();
+    const [provider,web3Provider, address, network]  = await connectMetamask();
+
     dispatch({
       type: "SET_WEB3_PROVIDER",
       provider,

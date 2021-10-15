@@ -1,5 +1,38 @@
 import styles from "./step2.module.css"
-export default function Step2({nextpage, handleSubmit}) {
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import initFirebase from '../../../../../firebase/initFirebase'
+export default function Step2({nextpage, setCuruser}) {
+    const app = initFirebase()
+    if(app){console.log("app init:", app)}
+    const auth = getAuth();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("handleSubmit.target.elements:",e.target.elements)
+        // let ORCIDid = e.target.elements['ORCIDid'].value
+        // let lastname = e.target.elements['lastname'].value
+        // let firstname = e.target.elements['firstname'].value
+        let email = e.target.elements['email'].value
+        let password = e.target.elements['password'].value
+        
+
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(userCredential => {
+          const user = userCredential.user    
+          console.log('userCredential.user:',user)
+          setCuruser(user)
+        }).catch(error => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log('error:',errorCode,errorMessage)
+        }).then(()=>{
+            console.log("After register blt account!")
+            nextpage()
+        })
+
+        nextpage()
+
+      };
+
     return(
 
 

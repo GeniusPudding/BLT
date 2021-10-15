@@ -44,7 +44,7 @@ if (typeof window !== "undefined") {
     providerOptions, // required
   });
 }
-const initialState = {
+export const initialState = {
   //= StateType =
   provider: null,
   web3Provider: null,
@@ -52,7 +52,7 @@ const initialState = {
   chainId: null,
 };
 //function reducer(state: StateType, action: ActionType): StateType {
-function reducer(state, action) {
+export function reducer(state, action) {
   switch (action.type) {
     case "SET_WEB3_PROVIDER":
       return {
@@ -80,7 +80,6 @@ function reducer(state, action) {
 }
 export default function useConnectMetamask() {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   return [state, dispatch];
 }
 
@@ -108,7 +107,7 @@ export async function connectMetamask() {
   console.log("address:", address);
   console.log("balance:", balance);
   console.log("network:", network);
-  return network
+  return [provider,web3Provider, address, network]
 
 }
 export async function disconnectMetamask(provider) {
