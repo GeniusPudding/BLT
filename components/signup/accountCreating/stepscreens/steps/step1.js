@@ -1,5 +1,5 @@
 import styles from "./step1.module.css"
-export default function Step1({connected}) {
+export default function Step1({nextpage, connected}) {
     return(
         !connected ?
         <>

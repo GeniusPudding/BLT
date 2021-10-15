@@ -14,7 +14,7 @@ export default function RightStepScreens({ step, setStep }) {
 
     const two = 2 & step
     const one = 1 & step
-    const [connected, setConnected] = useState(true)//For metamask
+    const [connected, setConnected] = useState(false)//For metamask
     const [curUser, setCuruser] = useState({}) //For blt
 
 
@@ -28,22 +28,22 @@ export default function RightStepScreens({ step, setStep }) {
         let password = e.target.elements['password'].value
         
 
-        createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredential => {
-          const user = userCredential.user    
-          console.log('userCredential.user:',user)
-          setCuruser(user)
-        }).catch(error => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log('error:',errorCode,errorMessage)
-        }).then(()=>{
-            console.log("After register blt account!")
-            setStep(3)
-        })
+        // createUserWithEmailAndPassword(auth, email, password)
+        // .then(userCredential => {
+        //   const user = userCredential.user    
+        //   console.log('userCredential.user:',user)
+        //   setCuruser(user)
+        // }).catch(error => {
+        //     const errorCode = error.code;
+        //     const errorMessage = error.message;
+        //     console.log('error:',errorCode,errorMessage)
+        // }).then(()=>{
+        //     console.log("After register blt account!")
+        //     setStep(3)
+        // })
 
         
-
+        setStep(3)
 
       };
 
@@ -55,19 +55,19 @@ export default function RightStepScreens({ step, setStep }) {
                     (
                         !!one ?
                             //step 1
-                            <Step1 connected={connected}></Step1>
+                            <Step1 nextpage={()=>{setStep(2)}} connected={connected}></Step1>
                             :
                             //step 0
-                            <Step0></Step0>
+                            <Step0 nextpage={()=>{setStep(1)}}></Step0>
                     )
                     :
                     (
                         !!one ?
                             //step 3
-                            <Step3></Step3>
+                            <Step3 nextpage={()=>{setStep(4)}}></Step3>
                             :
                             //step 2
-                            <Step2 handleSubmit={handleSubmit}></Step2>
+                            <Step2 nextpage={()=>{setStep(3)}} handleSubmit={handleSubmit}></Step2>
 
                     )
             }

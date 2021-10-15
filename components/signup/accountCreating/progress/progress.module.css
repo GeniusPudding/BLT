@@ -1,0 +1,91 @@
+.group81 {
+  /* Group 81 */
+
+  position: absolute;
+  width: 210px;
+  height: 19px;
+  left: 117px;
+  top: 316px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: rgba(249, 182, 111, 0.6);
+}
+.group82 {
+  /* Connected to MetaMask */
+
+  position: absolute;
+  width: 165px;
+  height: 19px;
+  left: 139px;
+  top: 391px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #8c8cc6;
+}
+
+.group82_big {
+  /* Group 82 */
+
+  position: absolute;
+  width: 206px;
+  height: 24px;
+  left: 118px;
+  top: 382px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #f9b66f;
+}
+
+.group83 {
+  /* Group 83 */
+
+  position: absolute;
+  width: 168px;
+  height: 19px;
+  left: 138px;
+  top: 452px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  color: #8c8cc6;
+}
+.group84 {
+  /* Group 84 */
+
+  position: absolute;
+  width: 174px;
+  height: 19px;
+  left: 135px;
+  top: 510px;
+
+  font-family: Rosario;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: rgba(219, 219, 219, 0.5);
+}

@@ -6,159 +6,73 @@ import Web3Modal from "web3modal";
 import ReactDOM from "react-dom";
 import styles from "./loginModal.module.css";
 import initFirebase from "../../firebase/initFirebase";
-import { getAuth, signInWithEmailAndPassword,onAuthStateChanged  } from "firebase/auth";
-import { useWeb3React } from "@web3-react/core";
-import { injected } from "../wallet/connectors";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+// import { useWeb3React } from "@web3-react/core";
+// import { injected } from "../wallet/connectors";
+import useConnectMetamask, {
+  web3Modal,
+  connectMetamask,
+  disconnectMetamask,
+} from "../hooks/connectMetamask";
 
-const INFURA_ID = "460f40a260564ac4a4f4b3fffb032dad";
-
-const providerOptions = {
-  walletconnect: {
-    package: WalletConnectProvider, // required
-    options: {
-      infuraId: INFURA_ID, // required
-    },
-  },
-  "custom-walletlink": {
-    display: {
-      logo: "https://play-lh.googleusercontent.com/PjoJoG27miSglVBXoXrxBSLveV6e3EeBPpNY55aiUUBM9Q1RCETKCOqdOkX2ZydqVf0",
-      name: "Coinbase",
-      description: "Connect to Coinbase Wallet (not Coinbase App)",
-    },
-    options: {
-      appName: "Coinbase", // Your app name
-      networkUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`,
-      chainId: 1,
-    },
-    package: WalletLink,
-    connector: async (_, options) => {
-      const { appName, networkUrl, chainId } = options;
-      const walletLink = new WalletLink({
-        appName,
-      });
-      const provider = walletLink.makeWeb3Provider(networkUrl, chainId);
-      await provider.enable();
-      return provider;
-    },
-  },
-};
-
-let web3Modal;
-if (typeof window !== "undefined") {
-  web3Modal = new Web3Modal({
-    network: "mainnet", // optional
-    cacheProvider: true,
-    providerOptions, // required
-  });
-}
-const initialState = {
-  //= StateType =
-  provider: null,
-  web3Provider: null,
-  address: null,
-  chainId: null,
-};
-//function reducer(state: StateType, action: ActionType): StateType {
-function reducer(state, action) {
-  switch (action.type) {
-    case "SET_WEB3_PROVIDER":
-      return {
-        ...state,
-        provider: action.provider,
-        web3Provider: action.web3Provider,
-        address: action.address,
-        chainId: action.chainId,
-      };
-    case "SET_ADDRESS":
-      return {
-        ...state,
-        address: action.address,
-      };
-    case "SET_CHAIN_ID":
-      return {
-        ...state,
-        chainId: action.chainId,
-      };
-    case "RESET_WEB3_PROVIDER":
-      return initialState;
-    default:
-      throw new Error();
-  }
-}
-export default function LoginModal({ show, onClose, children }) {//onClose={() => setShowModal(false)}
+export default function LoginModal({ show, onClose, setIsLogin }) {
+  //onClose={() => setShowModal(false)}
   const app = initFirebase();
-  if(app){console.log("app init:", app)}
+  if (app) {
+    console.log("app init:", app);
+  }
   const auth = getAuth();
-  auth.signOut()
+  auth.signOut();
   const [isBrowser, setIsBrowser] = useState(false);
-  const [isConnecting, setIsConnecting] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false); //Now is connecting to metamask
   const [loginUser, setLoginUser] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");  
-  const [state, dispatch] = useReducer(reducer, initialState);
+  // const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useConnectMetamask();
   const { provider, web3Provider, address, chainId } = state;
-  const { active, account, library, connector, activate, deactivate } = useWeb3React();
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      console.log("onAuthStateChanged user:",user)
-      console.log("uid:",uid)
+      console.log("onAuthStateChanged auth:", auth);
+      console.log("onAuthStateChanged user:", user);
+      console.log("uid:", uid);
       // ...
     } else {
-      console.log('onAuthStateChanged sign out')
+      console.log("onAuthStateChanged sign out");
       // User is signed out
       // ...
     }
   });
 
-  const loginBLT = (email,password)=>{
-    console.log("login")
-    
+  const loginBLT = (email, password) => {
+    console.log("login");
+
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      console.log("userCredential:",userCredential)
-      console.log("user:",user)
-      setLoginUser(user) 
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log('error:',error)
-      console.log('errorCode:',errorCode)
-      console.log('errorMessage:',errorMessage)
-    });
-  
-  }
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("userCredential:", userCredential);
+        console.log("user:", user);
+        setLoginUser(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("error:", error);
+        console.log("errorCode:", errorCode);
+        console.log("errorMessage:", errorMessage);
+      });
+  };
 
-  const connect = useCallback(async function () {
-    console.log('connecting...')
-    // This is the initial `provider` that is returned when
-    // using web3Modal to connect. Can be MetaMask or WalletConnect.
-    const provider = await web3Modal.connect();
-
-    // We plug the initial `provider` into ethers.js and get back
-    // a Web3Provider. This will add on methods from ethers.js and
-    // event listeners such as `.on()` will be different.
-    const web3Provider = new providers.Web3Provider(provider);
-
-    const signer = web3Provider.getSigner();
-    const address = await signer.getAddress();
-    const accounts = await web3Provider.listAccounts();
-    console.log("accounts:",accounts)
-    const balance = await web3Provider.getBalance(address);
-    const network = await web3Provider.getNetwork();
-
-    console.log("signer:",signer)
-    console.log("address:",address)
-    console.log("balance:",balance)
-    console.log("network:",network)
-
+  const connect = useCallback(async () => {
+    let network = await connectMetamask();
     dispatch({
       type: "SET_WEB3_PROVIDER",
       provider,
@@ -166,22 +80,27 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
       address,
       chainId: network.chainId,
     });
-
-
   }, []);
+
+  //DEBUG: not disconnecting?
   const disconnect = useCallback(
-    async function () {
-      console.log('disconnecting...')
-      await web3Modal.clearCachedProvider();
-      if (provider?.disconnect && typeof provider.disconnect === "function") {
-        await provider.disconnect();
-      }
+    async  (provider)=> {
+      await disconnectMetamask(provider)
       dispatch({
         type: "RESET_WEB3_PROVIDER",
       });
     },
     [provider]
   );
+
+  useEffect(() => {
+    console.log("test address:", address);
+    console.log("test chainId:", chainId);
+    if (address && loginUser) {
+      setIsLogin(true);
+    }
+  }, [address]);
+
   useEffect(() => {
     if (provider?.on) {
       const handleAccountsChanged = (accounts) => {
@@ -233,16 +152,15 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
     }
   }, [connect]);
 
-  useEffect(()=>{
-    if(!loginUser==""){
-      console.log('login blt user:',loginUser)
-      setIsConnecting(true);
+  useEffect(() => {
+    if (!loginUser == "") {
+      console.log("login blt user:", loginUser);
+      setIsConnecting(true); //login blt, and then connect to metamask
     }
-
-  }, [loginUser])
+  }, [loginUser]);
 
   useEffect(() => {
-    console.log('isConnecting:',isConnecting)
+    console.log("isConnecting:", isConnecting);
     if (isConnecting) {
       // Then try to connect to metamask
       onClose();
@@ -266,13 +184,18 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setIsConnecting(false);// how to set this when metamask modal closed?
-    console.log("handleLogin.target.elements.email", e.target.elements.email.value);
-    console.log("handleLogin.target.elements.password", e.target.elements.password.value);
+    setIsConnecting(false); // how to set this when metamask modal closed?
+    console.log(
+      "handleLogin.target.elements.email",
+      e.target.elements.email.value
+    );
+    console.log(
+      "handleLogin.target.elements.password",
+      e.target.elements.password.value
+    );
     // setEmail(e.target.elements.email.value)
     // setPassword(e.target.elements.password.value)
-    loginBLT(e.target.elements.email.value,e.target.elements.password.value)
-    
+    loginBLT(e.target.elements.email.value, e.target.elements.password.value);
   };
   const handleTest = (e) => {
     e.preventDefault();
@@ -307,17 +230,15 @@ export default function LoginModal({ show, onClose, children }) {//onClose={() =
               placeholder="password"
             ></input>
           </div>
-          <input type="reset" value="Clear" className={styles.recclean}/>
+          <input type="reset" value="Clear" className={styles.recclean} />
           <input
             className={styles.reclogin}
             type="submit"
             value="Login"
           ></input>
-           
         </form>
-       
-        {/* <div className={styles.textclean}>Clean</div> */}
 
+        {/* <div className={styles.textclean}>Clean</div> */}
       </div>
     </div>
   ) : null;

@@ -1,0 +1,78 @@
+.install{
+/* Install a MetaMesk plugin on your Chrome */
+
+
+position: absolute;
+width: 305px;
+height: 68px;
+left: 570px;
+top: 141px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+
+}
+.set{
+/* Set up your MetaMesk account on MetaMask Plugin */
+
+
+position: absolute;
+width: 349px;
+height: 68px;
+left: 570px;
+top: 353px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+
+color: #000000;
+}
+.group85{
+/* Group 85 */
+
+
+position: absolute;
+width: 200px;
+height: 46px;
+left: 570px;
+top: 227px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+text-align: center;
+
+color: #FFFFFF;
+
+}
+.group86{
+/* Group 86 */
+
+
+position: absolute;
+width: 200px;
+height: 46px;
+left: 900px;
+top: 497px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 24px;
+/* identical to box height */
+
+text-align: center;
+}

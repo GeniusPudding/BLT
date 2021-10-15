@@ -5,8 +5,17 @@ import Vector22 from '../vectors/vector22'
 import Vector23 from '../vectors/vector23'
 import BLT_Login2 from './group60/group60'
 import LoginModal from "../../modals/loginModal";
+import useLoginRoute from "../../hooks/loginRoute" 
 export default function LeftToLogin() {
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
+    // const [isLogin, setIsLogin] = useState(false);
+    // useEffect(() => {
+    //   if(isLogin ){
+    //       Router.push('/dashboard')
+    //   }
+    // },[isLogin]);
+    const [showModal, setShowModal, setIsLogin] = useLoginRoute()
+
     return (
         <div className={styles.rec}>
             <div className={styles.welcome}>Welcome Back!</div>
@@ -19,7 +28,7 @@ export default function LeftToLogin() {
             <Vector21></Vector21>
             <Vector22></Vector22>
             <Vector23></Vector23>
-            <LoginModal show={showModal} onClose={() => setShowModal(false)}></LoginModal>
+            <LoginModal show={showModal} onClose={() => setShowModal(false)} setIsLogin={setIsLogin}></LoginModal>
         </div>
     )
 }

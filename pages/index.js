@@ -10,9 +10,9 @@ import BLT_Decoration from "../components/landing/group93/group93";
 import BLT_Login1 from "../components/landing/group60/group60";
 import BLT_SignUp from "../components/landing/group59/group59";
 import { getIntroData } from "../lib/landing";
-import Link from "next/link";
 import { useState } from "react";
 import LoginModal from "../components/modals/loginModal";
+import useLoginRoute from "../components/hooks/loginRoute" 
 
 // import Date from "../components/date";
 
@@ -36,12 +36,16 @@ export async function getStaticProps() {
 
 // Landing
 export default function Home({ allPostsData }) {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
+  // const [isLogin, setIsLogin] = useState(false);
+  // useEffect(() => {
+  //   if(isLogin ){
+  //       Router.push('/dashboard')
+  //   }
+  // },[isLogin]);
+  const [showModal, setShowModal, setIsLogin] = useLoginRoute()
   return (
-    // <Layout>
-    //   <Head>
-    //   <title>{siteTitle}</title>
-    //   </Head>
+
     <div className={styles.landing}>
       <Vector13 className={styles.vector13}></Vector13>
       <BLT_Decoration></BLT_Decoration>
@@ -65,9 +69,8 @@ export default function Home({ allPostsData }) {
         <div className={styles.text}>Login</div>
       </button> */}
 
-      <LoginModal show={showModal} onClose={() => setShowModal(false)}></LoginModal>
+      <LoginModal show={showModal} onClose={() => setShowModal(false)} setIsLogin={setIsLogin}></LoginModal>
     </div>
 
-    // </Layout>
   );
 }

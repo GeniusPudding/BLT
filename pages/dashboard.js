@@ -17,7 +17,7 @@ export async function getStaticProps() {
 export default function DashBoard(props) {
 
     return (
-        <div></div>
+        <div>DashBoard</div>
         
     )
 }

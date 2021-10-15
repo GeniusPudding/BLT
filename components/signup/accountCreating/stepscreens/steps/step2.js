@@ -1,5 +1,5 @@
 import styles from "./step2.module.css"
-export default function Step2({handleSubmit}) {
+export default function Step2({nextpage, handleSubmit}) {
     return(
 
 
